@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
-import Section from './Section/';
-import Searchbar from './Searchbar';
-import ImageGallery from './ImageGallery';
-import axiosApi from './Service/AxiosAPI';
-import LoaderBtn from './Button';
-import Loader from './Loader';
+import Section from './Components/Section';
+import Searchbar from './Components/Searchbar/Searchbar';
+import ImageGallery from './Components/ImageGallery/ImageGallery';
+import axiosApi from './Components/Service/AxiosAPI';
+import LoaderBtn from './Components/Button';
+import LoaderSpinner from './Components/Loader/Loader';
 import { animateScroll as scroll } from 'react-scroll';
 
-import Modal from './Modal';
+import Modal from './Components/Modal/Modal';
 import './App.css';
 
-//to do axios in component
-// to do style
 class App extends Component {
   state = {
     articles: [],
@@ -25,7 +23,7 @@ class App extends Component {
   toogleModal = () => {
     this.setState(state => ({ showModal: !state.showModal }));
   };
-  //add text search
+
   handleAddQuery = text => {
     this.setState({
       query: text,
@@ -44,9 +42,9 @@ class App extends Component {
 
   AxiosArticles = () => {
     const { query, page } = this.state;
-    //
+
     this.setState({ loading: true });
-    //запрос на сервер
+
     axiosApi
       .axiosApiWithQuery(query, page)
       .then(data =>
@@ -81,7 +79,7 @@ class App extends Component {
         </Section>
 
         <Section>
-          {loading && <Loader />}
+          {loading && <LoaderSpinner />}
           {articles.length > 0 && (
             <ImageGallery array={articles} onClick={this.handleAddUrlToModal} />
           )}

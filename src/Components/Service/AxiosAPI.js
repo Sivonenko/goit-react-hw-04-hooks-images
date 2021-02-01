@@ -1,17 +1,15 @@
 import axios from 'axios';
 
 const axiosApiWithQuery = (query, pageNumber) => {
-  const API_KEY = '&key=16841256-a77ab01fa9b5f4c89d3e82996';
-  const BASE_Url = 'https://pixabay.com/api/';
-  const PARAMETRS = `?image_type=photo&orientation=horizontal&q=`;
-  const PER_PAGE = `&per_page=12`;
-  const PAGE = `&page=${pageNumber}`;
+  const api_key = '&key=19529322-34fbdd4595b880ec9c46328b0';
+  const base_url = 'https://pixabay.com/api/';
+  const parametrs = `?image_type=photo&orientation=horizontal&q=`;
+  const per_page = `&per_page=12`;
+  const page = `&page=${pageNumber}`;
 
   return axios
-    .get(BASE_Url + PARAMETRS + query + PAGE + PER_PAGE + API_KEY)
+    .get(base_url + parametrs + query + page + per_page + api_key)
     .then(response => response.data.hits);
 };
-
-export default {
-  axiosApiWithQuery,
-};
+const api = { axiosApiWithQuery };
+export default api;

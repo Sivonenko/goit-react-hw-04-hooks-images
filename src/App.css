@@ -12,6 +12,7 @@ html {
 
 body {
   margin: 0;
+  padding-bottom: 40px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   color: #212121;
@@ -50,7 +51,7 @@ img {
   grid-gap: 16px;
   margin-top: 0;
   margin-bottom: 0;
-  padding: 0;
+  padding: 0 0 40px;
   list-style: none;
   margin-left: auto;
   margin-right: auto;
